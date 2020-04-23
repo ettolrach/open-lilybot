@@ -4,11 +4,5 @@ A Discord bot that renders Lilypond code using Node.js.
 
 ## Dependencies
 
-The following packages should be automatically installed when running `npm install`,
-
-* [Discord.js](https://www.npmjs.com/package/discord.js),
-* [ShellJS](https://www.npmjs.com/package/shelljs).
-
-You will also need to install,
-
-* [Lilypond](https://lilypond.org/index.html).
+* [Discord.js](https://www.npmjs.com/package/discord.js). Used to interact with Discord. Install this using npm (`npm install discord.js`).
+* [Lilypond](https://lilypond.org/index.html). Used to compile Lilypond code. Install this like any other software (e.g. on Arch Linux, `pacman -S lilypond`).
