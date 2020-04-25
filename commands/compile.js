@@ -20,7 +20,9 @@ module.exports = {
                 console.log(error.stack);
                 console.log("Error code: " + error.code)
                 console.log("Signal received: " + error.signal);
-                console.log("Time of error: " + String(Date.now.toLocaleTimeString("en-GB")));
+                console.log("Time of error: " + String(Date()));
+                message.channel.send("An error has occured: ```" + error.stack + "```");
+                return;
             }
             console.log("Child process STDOUT:\n" + stdout);
             console.log("Child process STDERR:\n" + stderr);
