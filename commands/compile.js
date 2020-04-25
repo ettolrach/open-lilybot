@@ -10,6 +10,10 @@ module.exports = {
 	execute(message, args) {
         // Write the code to a file.
         fs.writeFileSync("code.ly", args[1]);
+        // If the output folder doesn't already exist, create it.
+        if (!fs.existsSync("./generatedFiles")) {
+            fs.mkdirSync("./generatedFiles");
+        }
 
         const lilypond = exec("lilypond " + args[0] + " --output=generatedFiles code.ly ", (error, stdout, stderr) => {
             if (error) {
@@ -34,7 +38,11 @@ module.exports = {
                 }
             }
 
-            message.channel.send("Output:", { files: [`./generatedFiles/${files[latestTimePosition]}`]})
+            message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] })
+
+            if (args[2] == "$$verbose" || args[2] == "$v") {
+                message.channel.send("Output: ```" + stderr + "```");
+            }
         });
 
 	},
