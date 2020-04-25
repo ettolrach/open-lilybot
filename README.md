@@ -10,7 +10,7 @@ A Discord bot that renders Lilypond code using Node.js.
 
 ## Installation
 
-You cannot invite the bot. This is due to it running code from the terminal which isn't supported by certain server hosting services, and because it requires Lilypond, which isn't provided in the NPM. Instead, you should do the following:
+There is no link to invite "the bot", instead the code that makes the bot work is presented here — think of it like how you can't drive a motor, but how you can put the motor in a car to drive the car, you can't use the code that's here, but you can create your bot with this code. This is due to it executing commands in the terminal which isn't supported by certain server hosting services, and because it requires Lilypond, which isn't provided in the NPM. Instead, you should do the following:
 
 * Create a new bot yourself by going to Discord's Developer Portal.
 * Copy the token and paste it to token.txt in the same directory as the where the bot (`bot.js`) is located.
@@ -21,7 +21,7 @@ You cannot invite the bot. This is due to it running code from the terminal whic
 
 Currently, the following can be configured by editing the `config.json` file. Editing the JSON file should be straight forward, even for people with little experience with JSON.
 
-* The prefix used. By default, this if `$lilypond`. 
+* The prefix used. By default, this if `$lilypond`.
 
 ## Usage
 
@@ -32,6 +32,6 @@ Extra options can be passed as usual (with the exception of `--output`). Note, h
 
 ### Custom options
 
-These options exist only for this bot and not in Lilypond. After the three grave accents (a.k.a. backticks) further options can be typed, each with the prefix:
+These options exist only for this bot and not in Lilypond. After having typed out your Lilypond code, further options can be typed:
 
 * `$$verbose`, or `$v`: Show the output of Lilypond's compiling process. This is hidden by default to not clog up the chat.
