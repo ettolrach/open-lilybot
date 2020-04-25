@@ -1,8 +1,6 @@
 // Import different modules.
 const Discord = require("discord.js");
 const client = new Discord.Client();
-// To run bash commands.
-const { exec } = require("child_process");
 // To access files.
 const fs = require("fs");
 // Load the configuration.
