@@ -1,12 +1,14 @@
 // To run bash commands.
 const { exec } = require("child_process");
 const fs = require("fs");
+// Load the configuration.
+const config = require("./config.json");
 
 module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
     args: false,
-    usage: "[OPTION]... FILE...",
+    usage: `${config.prefix} [OPTION]... FILE...`,
 	execute(message, args) {
         // Write the code to a file.
         fs.writeFileSync("code.ly", args[1]);
