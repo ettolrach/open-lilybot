@@ -2,7 +2,7 @@
 const { exec } = require("child_process");
 const fs = require("fs");
 // Load the configuration.
-const config = require("./config.json");
+const config = require("../config.json");
 
 module.exports = {
 	name: "compile",
