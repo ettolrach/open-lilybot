@@ -1,6 +1,6 @@
 # Open Lilybot
 
-A Discord bot that renders Lilypond code using Node.js.
+A Discord bot that renders Lilypond code using Node.js. This is not meant as a complete replacement for a Lilypond installation, but instead a tool to be used when a snippet of music is to be shared.
 
 ## Requirements
 
