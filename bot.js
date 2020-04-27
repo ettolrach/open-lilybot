@@ -55,12 +55,15 @@ client.on("message", message => {
         commandName = args.shift();
     }
 
-    // If the command doesn't exist, inform the user.
-    if (!client.commands.has(commandName)) {
+    // "command" is the command itself and the code attatched to it.
+    // This line will look for that command or if that doesn't exit, and command whose aliases includes the entered command name.
+    const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
+
+    // If the command doesn't exist, inform the user and stop.
+    if (!command) {
+        message.channel.send("That command doesn't exist.");
         return;
     }
-
-    const command = client.commands.get(commandName);
     
     // The command.args part checks whether arguments need to be specified. Because args is a part of command, this if is only called when needed.
     if (command.args && !args.length) {
