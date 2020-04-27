@@ -2,15 +2,14 @@
 const { exec } = require("child_process");
 const fs = require("fs");
 // Load the configuration.
-const config = require("./config.json");
+const config = require("../config.json");
 
 module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
     args: false,
     usage: `${config.prefix} [OPTION]... FILE...`,
-	execute(message, args) {
-        // Write the code to a file.
+	execute(message, args) {// Write the code to a file.
         fs.writeFileSync("code.ly", args[1]);
         // If the output folder doesn't already exist, create it.
         if (!fs.existsSync("./generatedFiles")) {
@@ -26,8 +25,6 @@ module.exports = {
                 message.channel.send("An error has occured: ```" + error.stack + "```");
                 return;
             }
-            console.log("Child process STDOUT:\n" + stdout);
-            console.log("Child process STDERR:\n" + stderr);
             
             // Get the most recent file in the folder and upload that one.
             let files = fs.readdirSync("./generatedFiles");

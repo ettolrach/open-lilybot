@@ -43,8 +43,8 @@ client.on("message", message => {
         args = realMessage.split("```");
 
         // Remove any space that has been typed form the before and after the code block.
-        args[0] = args[0].replace(/\s/g, '');
-        args[2] = args[2].replace(/\s/g, '');
+        args[0] = args[0].replace(/\s/g, "");
+        args[2] = args[2].replace(/\s/g, "");
 
         // If there's no command specified, assume compile.
         commandName = "compile"
@@ -53,7 +53,6 @@ client.on("message", message => {
     else {
         args = realMessage.split(" ");
         commandName = args.shift();
-        console.log(commandName);
     }
 
     // If the command doesn't exist, inform the user.
@@ -80,11 +79,6 @@ client.on("message", message => {
     }
     catch (error) {
         console.error(error);
-        message.reply('there was an error trying to execute that command!');
+        message.reply("There was an error trying to execute that command. More information has been written to the terminal.");
     }
-
-    /*
-    // Reply with the message.
-    message.channel.send(realMessage);*/
-    console.log(args);
 });
