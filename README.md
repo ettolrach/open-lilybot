@@ -21,7 +21,7 @@ There is no link to invite "the bot", instead the code that makes the bot work i
 
 Currently, the following can be configured by editing the `config.json` file. Editing the JSON file should be straight forward, even for people with little experience with JSON.
 
-* The prefix used. By default, this if `$lilypond`.
+* The prefix used. By default, this is `$lilypond`.
 
 ## Usage
 
@@ -35,3 +35,8 @@ Extra options can be passed as usual (with the exception of `--output`). Note, h
 These options exist only for this bot and not in Lilypond. After having typed out your Lilypond code, further options can be typed:
 
 * `$$verbose`, or `$v`: Show the output of Lilypond's compiling process. This is hidden by default to not clog up the chat.
+
+## Future additions
+
+* Add a MIDI functionality that renders MIDI output to more easily demonstrate musical examples. It should render the MIDI produced by Lilypond and then upload a lossy file (MP3 or OGG depending on which is easier and quicker). This should be optional so that if the bot maintainer doesn't want to go through the steps to enable MIDI rendering they can decide to simply remove it. Possible candidates for this functionality:
+  * Fluidsynth. This could work well but is another program that needs to be run from the terminal. The bot maintainer would need to set it up with the appropriate soundfont too, requiring a lot more installation steps.
