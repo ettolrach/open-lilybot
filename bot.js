@@ -19,6 +19,7 @@ const token = fs.readFileSync("./token.txt").toString().split("\n")[0];
 // Confirm that the bot is ready to be used.
 client.once("ready", () => {
     console.log("Ready.");
+    client.user.setPresence({ activity: { name: `"${config.prefix} help" for help`}, status: "online" }).then(console.log).catch(console.error)
 });
 
 client.login(token);
