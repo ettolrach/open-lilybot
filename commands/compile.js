@@ -8,7 +8,7 @@ module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
     args: true,
-    usage: `\`$lilypond [compile] FILE [OPTION]...\` Note that you don't need ot write "compile". That means you can also type \`$lilypond FILE [OPTIONS]...\``,
+    usage: `\`${config.prefix} [compile] FILE [OPTION]...\` Note that you don't need ot write "compile". That means you can also type \`${config.prefix} FILE [OPTIONS]...\``,
     options: `\`$v\`, \`$$verbose\`: include Lilypond's output from the terminal when compilation is finished. **NOTE** that the options should come after the file (code), not before!`,
 	execute(message, args) {
         if (args[0].substring(0, 7) == "compile") {
@@ -32,7 +32,7 @@ module.exports = {
                 console.log("Error code: " + error.code)
                 console.log("Signal received: " + error.signal);
                 console.log("Time of error: " + String(Date()));
-                message.channel.send("An error has occured: ```" + error.stack + "```");
+                message.channel.send("An error has occured when trying to compile. The terminal output is as follows: ```" + error.stack + "```");
                 return;
             }
             
@@ -48,9 +48,10 @@ module.exports = {
                     latestTimePosition = i;
                 }
             }
-
+            
+            // Send the generated file.
             message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] })
-
+            // Also send the terminal output if $v was specified.
             if (args[2] == "$$verbose" || args[2] == "$v") {
                 message.channel.send("Output: ```" + stderr + "```");
             }
