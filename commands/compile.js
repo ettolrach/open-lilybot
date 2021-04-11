@@ -6,7 +6,7 @@ const config = require("../config.json");
 
 module.exports = {
 	name: "compile",
-    description: "Compile Lilypond code.",
+    description: "Compile Lilypond score.",
     args: true,
     usage: `\`${config.prefix} [compile] FILE [OPTION]...\` Note that you don't need to include "compile". For more info, type \`${config.prefix} help compile\`.`,
     options: `· \`png\`, \`preview\`: render a PNG and upload it.\n· \`$v\`, \`verbose\`: run the command with the -dverbose flag. This can be useful if you have made a mistake and don't know what's wrong.`,
@@ -16,8 +16,8 @@ module.exports = {
             args[0] = args[0].substring(7);
         }
 
-        // Write the code to a file.
-        fs.writeFileSync("code.ly", args[1]);
+        // Write the score to a file.
+        fs.writeFileSync("score.ly", args[1]);
         // If the output folder doesn't already exist, create it.
         if (!fs.existsSync("./generatedFiles")) {
             fs.mkdirSync("./generatedFiles");
@@ -34,8 +34,8 @@ module.exports = {
             verbose = true;
         }
 
-        // Run the Lilypond command to compile the code.
-        const lilypond = exec("lilypond " + lilypondArgs + " -dsafe --output=generatedFiles code.ly ", (error, stdout, stderr) => {
+        // Run the Lilypond command to compile the score.
+        const lilypond = exec("lilypond " + lilypondArgs + " -dsafe --output=generatedFiles score.ly ", (error, stdout, stderr) => {
             // Report an error if one occured.
             if (error) {
                 console.log(error.stack);

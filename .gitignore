@@ -1,5 +1,8 @@
-# === Project specific files === #
+# === Project and generated files === #
+score.ly
 token.txt
+topggtoken.txt
+generatedFiles/
 
 # === Node.js === #
 

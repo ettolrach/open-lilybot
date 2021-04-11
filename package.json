@@ -4,6 +4,7 @@
   "description": "A Discord bot that renders Lilypond code using Node.js.",
   "main": "bot.js",
   "dependencies": {
+    "@top-gg/sdk": "^3.0.9",
     "discord.js": "^12.5.3"
   },
   "scripts": {

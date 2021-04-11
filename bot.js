@@ -88,3 +88,17 @@ client.on("message", message => {
         message.reply("There was an error trying to execute that command. More information has been written to the terminal.");
     }
 });
+
+// Read the topggtoken and display it. The extra stuff after .toString() is to ensure that only the first line is used, the one which hopefully has the token.
+const topggtoken = fs.readFileSync("./topggtoken.txt").toString().split("\n")[0];
+const Topgg = require('@top-gg/sdk')
+const api = new Topgg.Api(topggtoken)
+
+setInterval(() => {
+  api.postStats({
+    serverCount: client.guilds.cache.size,
+    shardId: client.shard.ids[0], // if you're sharding
+    shardCount: client.options.shardCount
+  })
+}, 1800000) // post every 30 minutes
+
