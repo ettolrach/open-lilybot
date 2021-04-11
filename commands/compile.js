@@ -8,8 +8,8 @@ module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
     args: true,
-    usage: `\`${config.prefix} [compile] FILE [OPTION]...\` Note that you don't need ot write "compile". That means you can also type \`${config.prefix} FILE [OPTIONS]...\``,
-    options: `\`$v\`, \`$$verbose\`: include Lilypond's output from the terminal when compilation is finished. **NOTE** that the options should come after the file (code), not before!`,
+    usage: `\`${config.prefix} [compile] FILE [OPTION]...\` Note that you don't need to write "compile". That means you can also type \`${config.prefix} FILE [OPTIONS]...\``,
+    options: `· \`$v\`, \`$$verbose\`: include Lilypond's output from the terminal when compilation is finished. **NOTE** that the options should come after the file (code), not before!`,
 	execute(message, args) {
         // Remove "compile" if the user specified it so that it doesn't get passed into the Lilypond command.
         if (args[0].substring(0, 7) == "compile") {
@@ -51,7 +51,7 @@ module.exports = {
             
             // Send the generated file.
             message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] })
-            
+
             // Also send the terminal output if $v was specified.
             if (args[2] == "$$verbose" || args[2] == "$v") {
                 message.channel.send("Output: ```" + stderr + "```");
