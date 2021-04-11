@@ -8,8 +8,18 @@ module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
     args: true,
-    usage: `[OPTION]... FILE...`,
-	execute(message, args) {// Write the code to a file.
+    usage: `\`$lilypond [compile] FILE [OPTION]...\` Note that you don't need ot write "compile". That means you can also type \`$lilypond FILE [OPTIONS]...\``,
+    options: `\`$v\`, \`$$verbose\`: include Lilypond's output from the terminal when compilation is finished. **NOTE** that the options should come after the file (code), not before!`,
+	execute(message, args) {
+        if (args[0].substring(0, 7) == "compile") {
+            args[0] = args[0].substring(7);
+        }
+        console.log("---");
+        for (let i = 0; i < args.length; i++) {
+            console.log(args[i]);
+        }
+        console.log("---");
+        // Write the code to a file.
         fs.writeFileSync("code.ly", args[1]);
         // If the output folder doesn't already exist, create it.
         if (!fs.existsSync("./generatedFiles")) {
