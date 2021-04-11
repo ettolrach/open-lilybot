@@ -50,7 +50,7 @@ module.exports = {
             }
             
             // Send the generated file.
-            message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] })
+            message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] });
 
             // Also send the terminal output if $v was specified.
             if (args[2] == "$$verbose" || args[2] == "$v") {
