@@ -1,0 +1,22 @@
+{
+  "name": "open-lilybot",
+  "version": "0.2.0",
+  "description": "A Discord bot that renders Lilypond code using Node.js.",
+  "main": "bot.js",
+  "dependencies": {
+    "discord.js": "^12.5.3"
+  },
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSheepGuy/open-lilybot.git"
+  },
+  "author": "Charlotte Ausel",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/TheSheepGuy/open-lilybot/issues"
+  },
+  "homepage": "https://github.com/TheSheepGuy/open-lilybot#readme"
+}
