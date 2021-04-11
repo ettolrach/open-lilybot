@@ -25,7 +25,24 @@ You can type \`${config.prefix} help COMMAND\` to get help about a specific comm
 				break;
 
 			case "compile":
-				message.channel.send(`**Usage:** \`${config.prefix} [compile] FILE [OPTION]...\`\n\n**Description:** Compile some Lilypond code. You can include any options and they will be passed to Lilypond. The most useful of which is \`-dpreview\` which will send and image of the generated code instead of a PDF.\n\n**Options:**\n· \`$v\`, \`$$verbose\`: include Lilypond's output from the terminal when compilation is finished.\n**NOTE** that the options should come after the file (code), not before!\n\n**Example:**\n${config.prefix} -dpreview\n\\\`\\\`\\\`\\relative c'' {\n\\clef "treble"\n\\time\n4/4\nc2 e4 g\nb,4. c16 d c4 r4\n}\\\`\\\`\\\` $v`);
+				message.channel.send(
+`**Usage:** \`${config.prefix} [compile] [OPTION]... FILE\` Note that you don't need to include "compile", as shown in the example below.
+
+**Description:** Compile some Lilypond code. You can include options as detailed below.
+
+**Options:**
+· \`png\`, \`preview\`: render a PNG and upload it.
+· \`verbose\`: run the command with the -dverbose flag. This can be useful if you have made a mistake and don't know what's wrong.
+
+**Example:**
+${config.prefix} preview
+\\\`\\\`\\\`\\relative c'' {
+	\\clef "treble"
+	\\time 4/4
+	c2 e4 g
+	b,4. c16 d c4 r4
+}\\\`\\\`\\\``
+					);
 				break;
 
 			case "help":

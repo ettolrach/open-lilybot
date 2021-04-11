@@ -43,8 +43,7 @@ client.on("message", message => {
         args = realMessage.split("```");
 
         // Remove any space that has been typed form the before and after the code block.
-        args[0] = args[0].replace(/\s/g, "");
-        args[2] = args[2].replace(/\s/g, "");
+        //args[0] = args[0].replace(/\s/g, "");
 
         // If there's no command specified, assume compile.
         commandName = "compile"
