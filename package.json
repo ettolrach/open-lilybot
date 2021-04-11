@@ -1,6 +1,6 @@
 {
   "name": "open-lilybot",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Discord bot that renders Lilypond code using Node.js.",
   "main": "bot.js",
   "dependencies": {

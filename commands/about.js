@@ -6,7 +6,7 @@ module.exports = {
     description: "Show version information about the bot and Lilypond.",
     aliases: ["-v", "$v"],
 	execute(message, args) {
-        toSend = "Open Lilybot 0.2.0\n";
+        toSend = "Open Lilybot 0.2.1\n";
 
         const lilypond = exec("lilypond -v", (error, stdout, stderr) => {
             if (error) {
