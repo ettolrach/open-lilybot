@@ -16,13 +16,13 @@ for (const file of commandFiles) {
 // Read the token and display it. The extra stuff after .toString() is to ensure that only the first line is used, the one which hopefully has the token.
 const token = fs.readFileSync("./token.txt").toString().split("\n")[0];
 
+client.login(token);
+
 // Confirm that the bot is ready to be used.
 client.once("ready", () => {
     console.log("Ready.");
     client.user.setPresence({ activity: { name: `"${config.prefix} help" for help`}, status: "online" }).then(console.log).catch(console.error)
 });
-
-client.login(token);
 
 client.on("message", message => {
     // Do not reply to the message if it doesn't start with the prefix or if it was sent by a bot.
