@@ -4,12 +4,13 @@ const config = require("../config.json");
 module.exports = {
 	name: "help",
     description: "Show commands and provide help.",
+	aliases: ["commands"],
     args: false,
 	execute(message, args) {
 		if (args.length == 0) {
 			message.channel.send(
 `**__List of commands__**
-· \`about\` Show the version of the bot and Lilypond.
+· \`about\`, \`version\`, \`-v\` Show the version of the bot and Lilypond.
 · \`compile\` Compile Lilypond code. This command is most likely the one which you would use most frequently.
 · \`help\` Show this list of commands and get more information about specific commands.
 · \`ping\` Check if the bot is online and get ponged back.
