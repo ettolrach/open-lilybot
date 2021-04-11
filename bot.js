@@ -70,7 +70,7 @@ client.on("message", message => {
         let reply = `Error, no arguments provided.`;
 
 		if (command.usage) {
-			reply += `\nUsage: \`${prefix} ${command.name} ${command.usage}\``;
+			reply += `\nUsage: \`${config.prefix} ${command.name} ${command.usage}\``;
 		}
 
 		return message.channel.send(reply);

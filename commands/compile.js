@@ -7,8 +7,8 @@ const config = require("../config.json");
 module.exports = {
 	name: "compile",
     description: "Compile Lilypond code.",
-    args: false,
-    usage: `${config.prefix} [OPTION]... FILE...`,
+    args: true,
+    usage: `[OPTION]... FILE...`,
 	execute(message, args) {// Write the code to a file.
         fs.writeFileSync("code.ly", args[1]);
         // If the output folder doesn't already exist, create it.
