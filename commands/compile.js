@@ -35,7 +35,7 @@ module.exports = {
         }
 
         // Run the Lilypond command to compile the code.
-        const lilypond = exec("lilypond " + lilypondArgs + " --output=generatedFiles code.ly ", (error, stdout, stderr) => {
+        const lilypond = exec("lilypond " + lilypondArgs + " -dsafe --output=generatedFiles code.ly ", (error, stdout, stderr) => {
             // Report an error if one occured.
             if (error) {
                 console.log(error.stack);
