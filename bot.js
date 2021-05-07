@@ -21,7 +21,7 @@ client.login(token);
 // Confirm that the bot is ready to be used.
 client.once("ready", () => {
     console.log("Ready.");
-    client.user.setPresence({ activity: { name: `"${config.prefix} help" for help`}, status: "online" }).then(console.log).catch(console.error)
+    client.user.setPresence({ activity: { name: `"${config.prefix} help" for help`, type: "LISTENING"}, status: "idle" }).then(console.log).catch(console.error)
 });
 
 client.on("message", message => {
