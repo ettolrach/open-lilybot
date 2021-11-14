@@ -6,7 +6,7 @@ module.exports = {
     description: "Show version information about the bot and Lilypond.",
     aliases: ["-v", "version"],
     execute(message) {
-        let toSend = "Open Lilybot 1.1.1\n";
+        let toSend = "Open Lilybot 1.2.3\n";
 
         const lilypondVersionCommand = new Promise((resolve, reject) => {
             exec("lilypond -v", (error, stdout, stderr) => {
