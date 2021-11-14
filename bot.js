@@ -9,8 +9,8 @@ const config = require("./config.json");
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
 }
 
 // Read the token and display it. The extra stuff after .toString() is to ensure that only the first line is used, the one which hopefully has the token.
@@ -69,14 +69,14 @@ client.on("message", message => {
     if (command.args && !args.length) {
         let reply = `Error, no arguments provided.`;
 
-		if (command.usage) {
-			reply += `\n**Usage:** ${command.usage}`;
-		}
+        if (command.usage) {
+            reply += `\n**Usage:** ${command.usage}`;
+        }
         if (command.options) {
             reply += `\n**Options:** ${command.options}`;
         }
 
-		return message.channel.send(reply);
+        return message.channel.send(reply);
     }
 
     // Otherwise, try to run the command.

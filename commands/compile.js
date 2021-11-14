@@ -5,12 +5,12 @@ const fs = require("fs");
 const config = require("../config.json");
 
 module.exports = {
-	name: "compile",
+    name: "compile",
     description: "Compile Lilypond code.",
     args: true,
     usage: `\`${config.prefix} [compile] FILE [OPTION]...\` Note that you don't need to include "compile". For more info, type \`${config.prefix} help compile\`.`,
     options: `· \`png\`, \`preview\`: render a PNG and upload it.\n· \`$v\`, \`verbose\`: run the command with the -dverbose flag. This can be useful if you have made a mistake and don't know what's wrong.`,
-	execute(message, args) {
+    execute(message, args) {
         // Remove "compile" if the user specified it so that it doesn't get passed into the Lilypond command.
         if (args[0].substring(0, 7) == "compile") {
             args[0] = args[0].substring(7);
@@ -69,5 +69,5 @@ module.exports = {
             }
         });
 
-	},
+    },
 };

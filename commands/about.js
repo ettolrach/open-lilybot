@@ -2,10 +2,10 @@
 const { exec } = require("child_process");
 
 module.exports = {
-	name: "about",
+    name: "about",
     description: "Show version information about the bot and Lilypond.",
     aliases: ["-v", "version"],
-	execute(message, args) {
+    execute(message, args) {
         toSend = "Open Lilybot 1.1.1\n";
 
         const lilypond = exec("lilypond -v", (error, stdout, stderr) => {
