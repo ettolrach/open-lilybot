@@ -1,12 +1,13 @@
 // Import different modules.
-const Discord = require("discord.js");
-const client = new Discord.Client();
+const {Client, Intents} = require("discord.js");
+const Collection = require("@discordjs/collection");
+const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
 // To access files.
 const fs = require("fs");
 // Load the configuration.
 const config = require("./config.json");
 // Load any commands.
-client.commands = new Discord.Collection();
+client.commands = new Collection.Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`);
@@ -19,12 +20,13 @@ const token = fs.readFileSync("./token.txt").toString().split("\n")[0];
 client.login(token);
 
 // Confirm that the bot is ready to be used.
-client.once("ready", () => {
+client.once("ready", async () => {
     console.log("Ready.");
-    client.user.setPresence({ activity: { name: `"${config.prefix} help" for help`}, status: "online" }).then(console.log).catch(console.error)
+    await client.user.setActivity(`"${config.prefix} help" for help`, { type: "PLAYING" });
+    console.log("Set activity.");
 });
 
-client.on("message", message => {
+client.on("messageCreate", message => {
     // Do not reply to the message if it doesn't start with the prefix or if it was sent by a bot.
     if (!message.content.startsWith(config.prefix) || message.author.bot) {
         return;
