@@ -5,7 +5,9 @@ A Discord bot that renders Lilypond code using Node.js. This is not meant as a c
 ## Requirements
 
 * A Unix-like system. This has currently been tested only on Arch Linux and will most likely not work on Windows without modifying the code. That said, you can edit the code as you wish on your machine to make it work.
-* [Discord.js](https://www.npmjs.com/package/discord.js). Used to interact with Discord. Install this using npm (run `npm install discord.js` in the directory where the bot is located).
+* [Discord.js](https://www.npmjs.com/package/discord.js). Used to interact with Discord.
+* [Discord.js Collections](https://www.npmjs.com/package/@discordjs/collection) Used to interact with Discord.
+These two should be able to be installed by simply typing `npm install`.
 * [Lilypond](https://lilypond.org/index.html). Used to compile Lilypond code. Install this like any other software (e.g. on Arch Linux, `pacman -S lilypond`).
 
 ## Installation
@@ -14,8 +16,9 @@ There is no link to invite "the bot", instead the code that makes the bot work i
 
 * Create a new bot yourself by going to Discord's Developer Portal.
 * Copy the token and paste it to a file called `token.txt` in the same directory as the where the bot (`bot.js`) is located.
-* If not already done, install Lilypond, and run `npm install discord.js` in the same directory.
-* Run `node bot.js` in your favourite terminal.
+* If not already done, install Lilypond, and run `npm install` in the same directory.
+* Optionally, change the prefix as defined in `config.json`.
+* Run `node bot` in your favourite terminal.
 
 ## Configuration
 
