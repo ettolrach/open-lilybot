@@ -35,17 +35,21 @@ module.exports = {
         }
 
         // Run the Lilypond command to compile the code.
-        const lilypond = exec("lilypond " + lilypondArgs + " -dsafe --output=generatedFiles code.ly ", (error, stdout, stderr) => {
-            // Report an error if one occured.
-            if (error) {
-                console.log(error.stack);
-                console.log("Error code: " + error.code)
-                console.log("Signal received: " + error.signal);
-                console.log("Time of error: " + String(Date()));
-                message.channel.send("An error has occured when trying to compile. The terminal output is as follows: ```" + error.stack + "```");
-                return;
-            }
-            
+        const lilypond = new Promise((resolve, reject) => {
+            exec("lilypond " + lilypondArgs + " -dsafe --output=generatedFiles code.ly ", (error, stdout, stderr) => {
+                // Report an error if one occured.
+                if (error) {
+                    console.log(error.stack);
+                    console.log("Error code: " + error.code)
+                    console.log("Signal received: " + error.signal);
+                    console.log("Time of error: " + String(Date()));
+                    reject(err);
+                }
+                resolve(stderr);
+            });
+        });
+
+        lilypond.then(lilypondOutput => {
             // Get the most recent file in the folder and upload that one.
             // First get all files in the folder.
             let files = fs.readdirSync("./generatedFiles");
@@ -61,12 +65,14 @@ module.exports = {
             }
             
             // Send the generated file.
-            message.channel.send("Generated file:", { files: [`./generatedFiles/${files[latestTimePosition]}`] });
+            message.channel.send({ content: "Generated file:", files: [`./generatedFiles/${files[latestTimePosition]}`] });
 
-            // Also send the terminal output if $v was specified.
+            // Also send the terminal output if verbose was specified.
             if (verbose) {
-                message.channel.send("Output: ```" + stderr + "```");
+                message.channel.send("Output: ```" + lilypondOutput + "```");
             }
+        }).catch(err => {
+            message.channel.send("An error has occured when trying to compile. The terminal output is as follows: ```" + error.stack + "```");
         });
 
     },
