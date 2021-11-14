@@ -15,15 +15,17 @@ module.exports = {
 · \`help\` Show this list of commands and get more information about speific commands.
 · \`ping\` Check if the bot is online and get ponged back.
 
-You can type \`\`${prefix} help [COMMAND]\` to get information about a specific command.`
+You can type \`${prefix} help [COMMAND]\` to get information about a specific command.`
             );
             return;
         }
 
         switch (args[0]) {
             case "about":
+            case "version":
+            case "-v":
                 message.channel.send(
-`**Usage:** \`${prefix} about\`
+`**Usage:** \`${prefix} about\`, \`${prefix} version\`, \`${prefix} -v\`
 
 **Description:** Show the version of the bot and of Lilypond.`
                 );
