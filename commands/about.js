@@ -22,10 +22,10 @@ module.exports = {
             });
         });
 
-        lilypondVersionCommand.then(async lilypondOutput => {
+        lilypondVersionCommand.then(lilypondOutput => {
             toSend += lilypondOutput + "\nThis project is open source, view the code at <https://github.com/ettolrach/open-lilybot/>.";
             message.channel.send(toSend);
-        }).catch(async err => {
+        }).catch(err => {
             console.log(err);
             message.channel.send("An error has occured while attempting to get the version number of Lilypond (maybe check whether Lilypond is installed on the server?): ```" + error.stack + "```");
         });
