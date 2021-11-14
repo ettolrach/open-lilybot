@@ -43,7 +43,7 @@ module.exports = {
                     console.log("Error code: " + error.code)
                     console.log("Signal received: " + error.signal);
                     console.log("Time of error: " + String(Date()));
-                    reject(err);
+                    reject(error);
                 }
                 resolve(stderr);
             });
@@ -71,7 +71,7 @@ module.exports = {
             if (verbose) {
                 message.channel.send("Output: ```" + lilypondOutput + "```");
             }
-        }).catch(err => {
+        }).catch(error => {
             message.channel.send("An error has occured when trying to compile. The terminal output is as follows: ```" + error.stack + "```");
         });
 
